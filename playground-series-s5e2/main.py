@@ -12,7 +12,9 @@ from sklearn.preprocessing import OneHotEncoder
 class BaseModel:
     def __init__(self, *, extra=True, small_test=False) -> None:
         """
-        テストデータの読み込みと、パイプラインの作成を行います。
+        学習用データを読み込みます。
+        - extra: 追加の学習用データをマージする場合は True
+        - small_test: 全体の流れを確認するために少量のデータで動かす場合 True
         """
         train = pd.read_csv("data/train.csv", index_col="id")
         if extra:
